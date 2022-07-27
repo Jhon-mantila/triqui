@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">triki</string>
+    <string name="un_jugador">1 Jugador</string>
+    <string name="dos_jugadores">2 Jugadores</string>
+    <string name="facil">Facil</string>
+    <string name="normal">Normal</string>
+    <string name="imposible">Imposible</string>
+    <string name="casilla">Casilla</string>
+    <string name="circulos_ganan">¡Circulos Ganan!</string>
+    <string name="equis_ganan">¡Cruces Ganan!</string>
+    <string name="empate">¡Empate!</string>
 </resources>
