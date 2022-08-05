@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -73,6 +75,31 @@ public class MainActivity extends Activity {
 
         findViewById(R.id.dos_jug).setEnabled(false);
 
+
+    }
+
+    public void toque(View vista){
+
+        int casilla = 0;
+
+        System.out.println("Casilla tocada:"+ vista.getId());
+        System.out.println("Array Casilla 0:" + casillas[0]);
+
+        for(int i = 0; i < 9; i++){
+
+            if(casillas[i] == vista.getId()){
+
+                casilla = i;
+                System.out.println("casilla valor i:"+ casilla);
+                break;
+            }
+        }
+
+        Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
+
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+
+        toast.show();
 
     }
 
