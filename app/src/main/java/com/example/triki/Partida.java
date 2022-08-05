@@ -6,7 +6,11 @@ public class Partida {
 
         this.dificultad = dificultad;
 
+        jugador = 1;
+
     }
+
+    public int jugador;
 
     public final int dificultad;
 }

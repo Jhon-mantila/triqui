@@ -3,6 +3,7 @@ package com.example.triki;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -80,27 +81,48 @@ public class MainActivity extends Activity {
 
     public void toque(View vista){
 
-        int casilla = 0;
+        if (partida == null){
 
-        System.out.println("Casilla tocada:"+ vista.getId());
-        System.out.println("Array Casilla 0:" + casillas[0]);
+            return;
 
-        for(int i = 0; i < 9; i++){
-
-            if(casillas[i] == vista.getId()){
-
-                casilla = i;
-                System.out.println("casilla valor i:"+ casilla);
-                break;
-            }
         }
+            int casilla = 0;
 
-        Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
+            System.out.println("Casilla tocada:"+ vista.getId());
+            System.out.println("Array Casilla 0:" + casillas[0]);
 
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+            for(int i = 0; i < 9; i++){
 
-        toast.show();
+                if(casillas[i] == vista.getId()){
 
+                    casilla = i;
+                    System.out.println("casilla valor i:"+ casilla);
+                    break;
+                }
+            }
+
+            marca(casilla);
+
+            Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
+
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+
+            toast.show();
+
+    }
+
+    private void marca(int casilla){
+
+        ImageView imagen;
+
+        imagen = (ImageView) findViewById(casillas[casilla]);
+
+        if(partida.jugador == 1){
+            //asignar imagen
+            imagen.setImageResource(R.drawable.circulo);
+        }else {
+            imagen.setImageResource(R.drawable.equis);
+        }
     }
 
     private int jugadores;
