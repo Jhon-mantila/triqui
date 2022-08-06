@@ -103,6 +103,13 @@ public class MainActivity extends Activity {
 
             marca(casilla);
 
+            //llamo el metodo de inteligencia artificial
+            casilla  = partida.ia();
+            //Cambio los turnos
+            partida.turno();
+
+            marca(casilla);
+
             Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
 
             toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
