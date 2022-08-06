@@ -108,6 +108,8 @@ public class MainActivity extends Activity {
 
             marca(casilla);
 
+            //Cambio los turnos
+            partida.turno();
             //llamo el metodo de inteligencia artificial
 
             casilla  = partida.ia();
@@ -118,10 +120,10 @@ public class MainActivity extends Activity {
             }
 
             System.out.println("Número aleatorio: " +casilla);
-            //Cambio los turnos
-            partida.turno();
 
             marca(casilla);
+
+            partida.turno();
 
             /*Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
 

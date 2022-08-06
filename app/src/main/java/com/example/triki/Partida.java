@@ -39,17 +39,37 @@ public class Partida {
         return true;
     }
 
-    //para los turnos
-    public void turno(){
+    //para los turnos, empate, victoria ceros o equis, ningna de las anterior
+    public int  turno(){
+
+        boolean empate = true;
+
+        boolean ultimo_movimiento = true;
 
         for(int i=0; i<COMBINACIONES.length; i++) {
 
             for(int pos: COMBINACIONES[i]) {
 
-                System.out.println("Valor en posición: " + i + " " + casillas_ocupadas[pos]);
-            }
-        }
+                System.out.println("Valor en posición: " + pos + " " + casillas_ocupadas[pos]);
 
+                if(casillas_ocupadas[pos] != jugador) ultimo_movimiento = false;
+
+                if(casillas_ocupadas[pos] == 0) empate = false;
+
+            }//For anidado
+            System.out.println("-----------------------------------------------------");
+
+            if(ultimo_movimiento) return jugador;
+
+            ultimo_movimiento = true;
+
+
+        }//For principal
+        //encaso de empate
+        if(empate){
+
+            return 3;
+        }
         jugador++;
 
         if(jugador>2){
@@ -57,6 +77,8 @@ public class Partida {
             jugador = 1;
 
         }
+
+        return 0;
     }
     //inteligencia artificial
     public int ia(){
