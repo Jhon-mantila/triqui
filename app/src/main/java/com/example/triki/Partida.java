@@ -10,6 +10,33 @@ public class Partida {
 
         jugador = 1;
 
+        //Relleno el array en ceros
+        casillas_ocupadas = new int[9];
+
+        for (int i = 0 ; i < 9; i++){
+
+            casillas_ocupadas[i]=0;
+        }
+
+       for(int j=0; j<casillas_ocupadas.length; j++){
+           System.out.println("posición: " + j + " valor: " +casillas_ocupadas[j]);
+       }
+
+    }
+
+    public boolean comprueba_casilla_ocupada(int casilla){
+
+        if(casillas_ocupadas[casilla] != 0){
+            return false;
+        }else{
+            casillas_ocupadas[casilla] = jugador;
+        }
+
+        for(int j=0; j<casillas_ocupadas.length; j++){
+            System.out.println("posición: " + j + " valor: " +casillas_ocupadas[j]);
+        }
+
+        return true;
     }
 
     //para los turnos
@@ -23,7 +50,7 @@ public class Partida {
 
         }
     }
-
+    //inteligencia artificial
     public int ia(){
 
         int casilla;
@@ -39,4 +66,6 @@ public class Partida {
     public int jugador;
 
     public final int dificultad;
+
+    private int casillas_ocupadas[];
 }

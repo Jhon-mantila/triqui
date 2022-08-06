@@ -101,20 +101,33 @@ public class MainActivity extends Activity {
                 }
             }
 
+            if(partida.comprueba_casilla_ocupada(casilla) == false){
+
+                return;
+            }
+
             marca(casilla);
 
             //llamo el metodo de inteligencia artificial
+
             casilla  = partida.ia();
+
+            while (partida.comprueba_casilla_ocupada(casilla)!= true){
+
+                casilla = partida.ia();
+            }
+
+            System.out.println("Número aleatorio: " +casilla);
             //Cambio los turnos
             partida.turno();
 
             marca(casilla);
 
-            Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
+            /*Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
 
             toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
 
-            toast.show();
+            toast.show();*/
 
     }
 
