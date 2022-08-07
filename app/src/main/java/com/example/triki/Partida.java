@@ -8,6 +8,7 @@ public class Partida {
 
         this.dificultad = dificultad;
 
+        System.out.println("Paritda dificulta: " + this.dificultad);
         jugador = 1;
 
         //Relleno el array en ceros
@@ -98,11 +99,13 @@ public class Partida {
             }//For anidado
 
             if(cuantas_lleva == 2 && casilla != -1) return  casilla;
+
+            //Error que tenía y no me tenía encuenta los difrentes niveles de dificulta
+            casilla = -1;
+
+            cuantas_lleva = 0;
+
         }//For principal
-
-        casilla = -1;
-
-        cuantas_lleva = 0;
 
         return -1;
     }
@@ -111,6 +114,30 @@ public class Partida {
     public int ia(){
 
         int casilla;
+
+        casilla = dosEnRaya(2);
+        System.out.println("Dos en raya 2 :" + casilla);
+        if(casilla != -1) return casilla;
+
+
+        if(dificultad > 0){
+
+            casilla = dosEnRaya(1);
+            System.out.println("Dos en raya 1: " + casilla);
+            if(casilla != -1) return  casilla;
+
+        }
+
+        if(dificultad == 2){
+
+            if(casillas_ocupadas[0] == 0) return 0;
+
+            if(casillas_ocupadas[2] == 0) return 2;
+
+            if(casillas_ocupadas[6] == 0) return 6;
+
+            if(casillas_ocupadas[8] == 0) return 8;
+        }
 
         Random casilla_azar = new Random();
 

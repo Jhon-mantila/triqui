@@ -61,7 +61,9 @@ public class MainActivity extends Activity {
 
         if(id_boton_radio == R.id.normal){
 
+
             dificultad = 1;
+            System.out.println("Entro a normal: " + dificultad);
 
         }else if( id_boton_radio == R.id.imposible){
 
