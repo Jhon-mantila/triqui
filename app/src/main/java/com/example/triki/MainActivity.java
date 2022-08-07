@@ -123,7 +123,7 @@ public class MainActivity extends Activity {
 
             marca(casilla);
 
-            partida.turno();
+            System.out.println("partida: " + partida.turno());;
 
             /*Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
 

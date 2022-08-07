@@ -80,6 +80,33 @@ public class Partida {
 
         return 0;
     }
+
+    public int dosEnRaya(int jugador_en_turno){
+
+        int casilla=-1;
+
+        int cuantas_lleva = 0;
+
+        for(int i=0; i<COMBINACIONES.length; i++) {
+
+            for(int pos: COMBINACIONES[i]) {
+
+                if(casillas_ocupadas[pos] == jugador_en_turno) cuantas_lleva++;
+
+                if(casillas_ocupadas[pos] == 0 ) casilla = pos;
+
+            }//For anidado
+
+            if(cuantas_lleva == 2 && casilla != -1) return  casilla;
+        }//For principal
+
+        casilla = -1;
+
+        cuantas_lleva = 0;
+
+        return -1;
+    }
+
     //inteligencia artificial
     public int ia(){
 
