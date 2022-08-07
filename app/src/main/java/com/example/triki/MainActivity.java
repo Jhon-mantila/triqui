@@ -121,27 +121,30 @@ public class MainActivity extends Activity {
                 return;
             }
 
-            //llamo el metodo de inteligencia artificial
-            casilla  = partida.ia();
+            if(jugadores == 1) {
 
-            while (partida.comprueba_casilla_ocupada(casilla)!= true){
 
-                casilla = partida.ia();
+                //llamo el metodo de inteligencia artificial
+                casilla  = partida.ia();
+
+                while (partida.comprueba_casilla_ocupada(casilla)!= true){
+
+                    casilla = partida.ia();
+                }
+
+                System.out.println("Número aleatorio: " +casilla);
+
+                marca(casilla);
+
+                resultado = partida.turno();
+
+                if(resultado > 0 ){
+
+                    termina(resultado);
+
+                }
+
             }
-
-            System.out.println("Número aleatorio: " +casilla);
-
-            marca(casilla);
-
-            resultado = partida.turno();
-
-            if(resultado > 0 ){
-
-                termina(resultado);
-
-            }
-
-
 
     }
 
