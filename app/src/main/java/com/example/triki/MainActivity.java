@@ -103,6 +103,7 @@ public class MainActivity extends Activity {
                 }
             }
 
+
             if(partida.comprueba_casilla_ocupada(casilla) == false){
 
                 return;
@@ -111,9 +112,16 @@ public class MainActivity extends Activity {
             marca(casilla);
 
             //Cambio los turnos
-            partida.turno();
-            //llamo el metodo de inteligencia artificial
+            int resultado = partida.turno();
 
+            if(resultado > 0){
+
+                termina(resultado);
+
+                return;
+            }
+
+            //llamo el metodo de inteligencia artificial
             casilla  = partida.ia();
 
             while (partida.comprueba_casilla_ocupada(casilla)!= true){
@@ -125,13 +133,43 @@ public class MainActivity extends Activity {
 
             marca(casilla);
 
-            System.out.println("partida: " + partida.turno());;
+            resultado = partida.turno();
 
-            /*Toast toast = Toast.makeText(this, "casilla: " + casilla, Toast.LENGTH_LONG);
+            if(resultado > 0 ){
 
-            toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+                termina(resultado);
 
-            toast.show();*/
+            }
+
+
+
+    }
+
+    private void termina(int resultado){
+
+        String mensaje;
+
+        if(resultado == 1){
+            mensaje = "Ha ganado los circulos";
+        }else if(resultado == 2){
+            mensaje = "Ha ganado las equis";
+        }else{
+            mensaje = "Empate";
+        }
+
+        Toast toast = Toast.makeText(this, mensaje, Toast.LENGTH_LONG);
+
+            toast.setGravity(Gravity.CENTER, 0,10);
+
+            toast.show();
+
+            partida = null;
+
+        findViewById(R.id.un_jug).setEnabled(true);
+
+        findViewById(R.id.configGrupo).setAlpha(1);
+
+        findViewById(R.id.dos_jug).setEnabled(true);
 
     }
 
