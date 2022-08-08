@@ -130,6 +130,14 @@ public class Partida {
 
         if(dificultad == 2){
 
+            if(casillas_ocupadas[0] == 1 && casillas_ocupadas[2] == 0 && casillas_ocupadas[6] == 0 && casillas_ocupadas[8] == 0) return 3;
+
+            if(casillas_ocupadas[0] == 0 && casillas_ocupadas[2] == 1 && casillas_ocupadas[6] == 0 && casillas_ocupadas[8] == 0) return 3;
+
+            if(casillas_ocupadas[0] == 0 && casillas_ocupadas[2] == 0 && casillas_ocupadas[6] == 1 && casillas_ocupadas[8] == 0) return 5;
+
+            if(casillas_ocupadas[0] == 0 && casillas_ocupadas[2] == 0 && casillas_ocupadas[6] == 0 && casillas_ocupadas[8] == 1) return 4;
+
             if(casillas_ocupadas[0] == 0) return 0;
 
             if(casillas_ocupadas[2] == 0) return 2;
@@ -137,6 +145,9 @@ public class Partida {
             if(casillas_ocupadas[6] == 0) return 6;
 
             if(casillas_ocupadas[8] == 0) return 8;
+
+
+
         }
 
         Random casilla_azar = new Random();
